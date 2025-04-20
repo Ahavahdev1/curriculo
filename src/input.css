@@ -1,0 +1,28 @@
+/* Diretivas principais do Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Camada de componentes ou utilitários customizados (opcional) */
+/* Exemplo: Movendo os estilos da timeline para cá */
+@layer components {
+  .timeline-item:not(:last-child) {
+    @apply pb-8 border-l-2 border-gray-200 dark:border-gray-600 relative ml-2;
+  }
+  .timeline-dot {
+    @apply absolute -left-[0.6rem] top-1 w-3 h-3 bg-blue-500 rounded-full;
+  }
+}
+
+/* Ou estilos base customizados */
+@layer base {
+  /* Exemplo: Definir scroll suave globalmente */
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 antialiased;
+    /* Aplicar fonte padrão se configurada no tailwind.config.js */
+    /* font-family: theme('fontFamily.sans'); */
+  }
+}
